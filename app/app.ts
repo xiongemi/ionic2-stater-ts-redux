@@ -6,14 +6,18 @@ import {ListPage} from './pages/list/list';
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
 import {Type} from 'angular2/core';
 
+import configureStore from './store/configure-store';
+const provider = require('ng2-redux').provider;
+const store = configureStore();   
 
 @App({
   templateUrl: 'build/app.html',
+  providers: [provider(store)],
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 class MyApp {
   // make HelloIonicPage the root (or first) page
-  rootPage: Type = HelloIonicPage;
+  HelloIonicPage: Type = HelloIonicPage;
   pages: Array<{title: string, component: Type}>;
 
   constructor(private app: IonicApp, private platform: Platform) {

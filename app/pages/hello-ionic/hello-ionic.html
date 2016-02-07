@@ -21,4 +21,12 @@
     <button primary menuToggle>Toggle Menu</button>
   </p>
 
+ <p>
+    Clicked: {{ counter }} times
+    <button (click)="increment()">+</button>
+    <button (click)="decrement()">-</button>
+    <button (click)="incrementIfOdd()">Increment if odd</button>
+    <button (click)="incrementAsync()">Increment async</button>
+  </p>
+
 </ion-content>
