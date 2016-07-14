@@ -1,60 +1,50 @@
-import {App, IonicApp, Platform} from 'ionic-framework/ionic';
+import {
+  Component,
+  NgZone,
+  ViewChild,
+  AfterContentInit
+} from '@angular/core';
+import { NgRedux } from 'ng2-redux';
+const createLogger = require('redux-logger');
+
+import reducer from './reducers';
+import {CounterActions} from './actions/counter';
+import {App, ionicBootstrap, Platform, ActionSheet, MenuController, NavController, Menu} from 'ionic-angular';
 
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
-import {ListPage} from './pages/list/list';
 
-// https://angular.io/docs/ts/latest/api/core/Type-interface.html
-import {Type} from 'angular2/core';
-
-import configureStore from './store/configure-store';
-const provider = require('ng2-redux').provider;
-const store = configureStore();   
-
-@App({
-  templateUrl: 'build/app.html',
-  providers: [provider(store)],
-  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
+@Component({
+  templateUrl: 'build/app.html'
 })
 class MyApp {
-  // make HelloIonicPage the root (or first) page
-  HelloIonicPage: Type = HelloIonicPage;
-  pages: Array<{title: string, component: Type}>;
+  pages: Array<{title: string, component: any}>;
+  rootPage: any;
+  @ViewChild('content') content: NavController;
 
-  constructor(private app: IonicApp, private platform: Platform) {
-
-    this.initializeApp();
+  constructor(private platform: Platform, private ngRedux: NgRedux<any>) {
+    this.ngRedux.configureStore(
+      reducer,
+      {},
+      [ createLogger() ]);
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Hello Ionic', component: HelloIonicPage }
     ];
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // The platform is now ready. Note: if this callback fails to fire, follow
-      // the Troubleshooting guide for a number of possible solutions:
-      //
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      //
-      // First, let's hide the keyboard accessory bar (only works natively) since
-      // that's a better default:
-      //
-      // Keyboard.setAccessoryBarVisible(false);
-      //
-      // For example, we might change the StatusBar color. This one below is
-      // good for dark backgrounds and light text:
-      // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
-    });
+    this.rootPage = HelloIonicPage;
   }
 
   openPage(page) {
-    // close the menu when clicking a link from the menu
-    this.app.getComponent('leftMenu').close();
-    // navigate to the new page if it is not the current page
-    let nav = this.app.getComponent('nav');
-    nav.setRoot(page.component);
+    this.content.setRoot(page.component);
   }
 }
+
+ionicBootstrap(MyApp, [NgRedux, CounterActions], {
+  statusbarPadding: true,
+  platforms: {
+    android: {
+      activator: 'ripple',
+      backButtonIcon: 'md-arrow-back'
+    }
+  }
+});
