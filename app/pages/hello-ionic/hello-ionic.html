@@ -1,32 +1,20 @@
-
-<ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>Hello Ionic</ion-title>
-</ion-navbar>
-
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      Hello Ionic Counter
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding class="getting-started">
-
-  <h3>Welcome to your first Ionic app!</h3>
-
   <p>
-    This starter project is our way of helping you get a functional app running in record time.
+    Clicked: {{ counter$ | async }} times
+    <button (click)="actions.increment()">+</button>
+    <button (click)="actions.decrement()">-</button>
+    <button (click)="actions.incrementIfOdd()">Increment if odd</button>
+    <button (click)="actions.incrementAsync()">Increment async</button>
   </p>
-  <p>
-    Follow along on the tutorial section of the Ionic docs!
-  </p>
-  <p>
-    <button primary menuToggle>Toggle Menu</button>
-  </p>
-
- <p>
-    Clicked: {{ counter }} times
-    <button (click)="increment()">+</button>
-    <button (click)="decrement()">-</button>
-    <button (click)="incrementIfOdd()">Increment if odd</button>
-    <button (click)="incrementAsync()">Increment async</button>
-  </p>
-
 </ion-content>
