@@ -2,8 +2,24 @@ var gulp = require('gulp'),
     gulpWatch = require('gulp-watch'),
     del = require('del'),
     runSequence = require('run-sequence'),
-    argv = process.argv;
+    argv = process.argv,
+    Server = require('karma').Server,
+    tslint = require("gulp-tslint");
 
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+  gulp.src('./app/**/*.ts')
+    .pipe(tslint({
+      formatter: "verbose"
+    }))
+    .pipe(tslint.report());
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
 
 /**
  * Ionic hooks

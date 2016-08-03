@@ -2,12 +2,12 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "commonjs",
+    "moduleResolution": "node",
     "noEmitOnError": false,
     "rootDir": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": false,
-    "sourceRoot": "",
     "inlineSourceMap": false,
     "inlineSources": false
   },

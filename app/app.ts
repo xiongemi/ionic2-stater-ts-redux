@@ -1,3 +1,6 @@
+/// <reference path="../typings/index.d.ts" />
+require('./SHIMS.js');
+
 import {
   Component,
   NgZone,

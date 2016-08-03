@@ -2,7 +2,13 @@
 
 This is a starter package for Ionic + Angular + Typescript + Redux. It should give a basis for your project if you want to use above frameworks.
 
-## How to Use
-1. Run `npm install`.
-2. Run `ionic serve`.
-3. It should launch a new tab in your browser at http://localhost:8101/.
+## How to Setup
+1. In console, go to the project root folder. Type in `npm install`.
+
+## How to Build
+1. In console, type in `ionic serve`.
+2. It should launch a new tab in your browser, usually at [http://localhost:8100/](http://localhost:8100/).
+
+## How to Run Unit Test
+1. In console, type in `gulp test`.
+For unit test example, see app/actions/counter.spec.ts.
