@@ -26,7 +26,7 @@
     "ionic-gulp-sass-build": "^1.0.0",
     "ionic-gulp-scripts-copy": "^2.0.0",
     "ionic-native": "^1.1.0",
-    "ionicons": "^3.0.0",
+    "ionicons": "^2.0.1",
     "ng2-redux": "^3.3.0",
     "redux": "^3.5.2",
     "redux-localstorage": "^0.4.1",
