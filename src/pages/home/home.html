@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <counter [counter]="counter$ | async" (increment)="actions.increment()" (decrement)="actions.decrement()">
+  </counter>
+</ion-content>
