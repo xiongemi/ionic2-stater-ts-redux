@@ -3,7 +3,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
-import Components from '../components';
+import { Components } from '../components';
 
 import { NgRedux } from 'ng2-redux';
 import { IAppState } from '../store';
