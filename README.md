@@ -8,3 +8,7 @@ This is a starter package for Ionic + Angular + Typescript + Redux. It should gi
 ## How to Build
 1. In console, type in `ionic serve`.
 2. It should launch a new tab in your browser, usually at [http://localhost:8100/](http://localhost:8100/).
+
+## How to Run Unit Test
+1. In console, type in `npm run test`.
+For unit test example, see app/actions/counter.actions.spec.ts.
