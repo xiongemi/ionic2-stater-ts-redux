@@ -8,9 +8,12 @@ import { middleware, enhancers } from '../store';
 import { NgRedux } from 'ng2-redux';
 import { AppState, rootReducer } from '../store';
 
+import { AD_MOB_ID } from '../constants';
+declare const AdMob: any;
+declare const adsbygoogle: any;
 
 @Component({
-  template: `<ion-nav [root]="rootPage"></ion-nav>`
+  templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage = HomePage;
@@ -23,6 +26,19 @@ export class MyApp {
       Splashscreen.hide();
 
       ngRedux.configureStore(rootReducer, {}, middleware, enhancers);
+
+      // need to add this timeout to show the ad
+      setTimeout(() => {
+        if (platform.is('ios') || platform.is('android')) {
+          AdMob.createBanner({
+            adId: AD_MOB_ID[platform.is('ios') ? 'ios' : 'android'],
+            position: AdMob.AD_POSITION.BOTTOM_CENTER,
+            autoShow: true
+          });
+        } else {
+          adsbygoogle.push({});
+        }
+      }, 0);
     });
   }
 }
