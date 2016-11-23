@@ -31,6 +31,8 @@
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
 
+  <div id="fb-root"></div>
+
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
@@ -39,6 +41,17 @@
 
   <!-- This is code for google adsense -->
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- This is code for facebook sdk -->
+  <script>
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 </body>
 </html>

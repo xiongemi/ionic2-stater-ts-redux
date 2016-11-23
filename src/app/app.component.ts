@@ -8,6 +8,7 @@ import { middleware, enhancers } from '../store';
 import { NgRedux } from 'ng2-redux';
 import { IAppState, rootReducer } from '../store';
 import { AD_MOB_ID } from '../constants';
+
 declare const AdMob: any;
 declare const adsbygoogle: any;
 

@@ -1,5 +1,6 @@
 import { IAppState, rootReducer, deimmutify, reimmutify } from './store';
 import { ICounter } from './counter';
+import { ISession } from './session';
 
 import createLogger from 'redux-logger';
 import persistState from 'redux-localstorage';
@@ -7,8 +8,9 @@ import persistState from 'redux-localstorage';
 export {
   IAppState,
   ICounter,
+  ISession,
   rootReducer,
-  reimmutify,
+  reimmutify
 };
 
 export let middleware = [];

@@ -7,8 +7,10 @@
 </ion-header>
 
 <ion-content padding>
-  <counter [counter]="counter$ | async" (increment)="actions.increment()" (decrement)="actions.decrement()">
+  <counter [counter]="counter$ | async" (increment)="counterActions.increment()" (decrement)="counterActions.decrement()">
   </counter>
+  <login (login)="sessionActions.loginUser()">
+  </login>
 
   <!-- course101 responsive -->
   <ins class="adsbygoogle google-ad"
