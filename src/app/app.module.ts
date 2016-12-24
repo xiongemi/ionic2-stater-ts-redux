@@ -6,10 +6,10 @@ import { HomePage } from '../pages/home/home';
 import { Components } from '../components';
 
 import { NgRedux } from 'ng2-redux';
-import { IAppState } from '../store';
+import { AppState } from '../store';
 
 export function ngReduxFactory() {
-    return new NgRedux<IAppState>();
+    return new NgRedux<AppState>();
 }
 
 @NgModule({

@@ -14,3 +14,4 @@
 declare module '*';
 declare module 'redux-logger';
 declare module 'redux-localstorage';
+declare module 'ramda';
