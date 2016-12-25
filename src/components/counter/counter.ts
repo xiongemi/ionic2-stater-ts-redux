@@ -5,7 +5,7 @@ import {
   EventEmitter,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { ICounter } from '../../store';
+import { CounterRecord } from '../../store';
 
 @Component({
   selector: 'counter',
@@ -23,7 +23,7 @@ import { ICounter } from '../../store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Counter {
-  @Input() counter: ICounter;
+  @Input() counter: CounterRecord;
   @Output() increment = new EventEmitter<void>();
   @Output() decrement = new EventEmitter<void>();
 };

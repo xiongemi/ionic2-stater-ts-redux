@@ -1,17 +1,16 @@
-import { Iterable } from 'immutable';
 import { counterReducer } from './counter.reducer';
 import { CounterActions } from '../../actions';
-import { ICounterRecord } from './counter.types';
+import { CounterRecord } from './counter.types';
 
 describe('counter reducer', () => {
-  let initState: ICounterRecord;
+  let initState: CounterRecord;
 
   beforeEach(() => {
     initState = counterReducer(undefined, { type: 'TEST_INIT '});
   });
 
-  it('should have an immutable initial state', () => {
-    expect(Iterable.isIterable(initState)).toBe(true);
+  it('expect initial state to have 0 value', () => {
+    expect(initState.counter).toEqual(0);
   });
 
   it('should increment state.count on INCREMENT_COUNTER', () => {

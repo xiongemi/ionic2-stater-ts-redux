@@ -6,7 +6,7 @@ import { HomePage } from '../pages/home/home';
 
 import { middleware, enhancers } from '../store';
 import { NgRedux } from 'ng2-redux';
-import { IAppState, rootReducer } from '../store';
+import { AppState, rootReducer } from '../store';
 
 
 @Component({
@@ -15,7 +15,7 @@ import { IAppState, rootReducer } from '../store';
 export class MyApp {
   rootPage = HomePage;
 
-  constructor(platform: Platform, private ngRedux: NgRedux<IAppState>) {
+  constructor(platform: Platform, private ngRedux: NgRedux<AppState>) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
